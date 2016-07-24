@@ -1,0 +1,9 @@
+//    val Two = λ { f -> λ { x -> f(f(x)) } }
+val Succ = λ { n -> λ { f -> λ { x -> f(n ͺ f ͺ x) } } }
+val Pred = λ { n -> λ { f -> λ { x -> n(λ { g -> λ { h -> h(g(f)) } })(λ { u -> x })(λ { u -> u }) } } }
+val Zero = λ { f -> λ { x -> x } }
+val Plus = λ { m -> λ { n -> m(Succ)(n) } }
+val Mult = λ { m -> λ { n -> λ { f -> m(n(f)) } } }
+val Pow = λ { b -> λ { e -> e(b) } }
+val Sub = λ { m -> λ { n -> n(Pred)(m) } }
+val Mod = Z(λ { f -> λ { m -> λ { n -> If(Leq(n)(m))(λ { x -> f(Sub(m)(n))(n)(x) })(m) } } })
