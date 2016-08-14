@@ -1,8 +1,3 @@
-//    val Two = λ { f -> λ { x -> f(f(x)) } }
-
-//    val One = λ { f -> λ { x ->
-//       f(x)
-//    }}
 
 val Zero = λ { f -> λ { x ->
     x
